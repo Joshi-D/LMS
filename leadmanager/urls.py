@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 # local imports
+import frontend.urls
 from leads.api.urls import router as leads_router  
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(frontend.urls)),
     path('api/v1/', include(leads_router.urls)),
     # path('',include('leads.api.urls'))
 ]
